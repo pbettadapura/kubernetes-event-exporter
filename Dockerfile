@@ -1,6 +1,6 @@
-FROM golang:1.20 AS builder
+FROM golang:1.23 AS builder
 
-ARG VERSION
+ARG VERSION=0.0.1
 ENV PKG github.com/resmoio/kubernetes-event-exporter/pkg
 
 ADD . /app
