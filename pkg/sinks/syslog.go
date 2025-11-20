@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/resmoio/kubernetes-event-exporter/pkg/kube"
-	"log/syslog"
+	"github.com/RackSec/srslog"
 )
 
 type SyslogConfig struct {
@@ -14,11 +14,11 @@ type SyslogConfig struct {
 }
 
 type SyslogSink struct {
-	sw *syslog.Writer
+	sw *srslog.Writer
 }
 
 func NewSyslogSink(config *SyslogConfig) (Sink, error) {
-	w, err := syslog.Dial(config.Network, config.Address, syslog.LOG_LOCAL0, config.Tag)
+	w, err := srslog.Dial(config.Network, config.Address, srslog.LOG_LOCAL0, config.Tag)
 	if err != nil {
 		return nil, err
 	}
