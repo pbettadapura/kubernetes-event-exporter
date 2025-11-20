@@ -1,6 +1,6 @@
 module github.com/resmoio/kubernetes-event-exporter
 
-go 1.23.0
+go 1.25
 
 require (
 	cloud.google.com/go/bigquery v1.44.0
